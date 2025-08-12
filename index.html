@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop - Sistem Informasi UAJY</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            color: white;
+            font-weight: 500;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .resource-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            animation: slideUp 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resource-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .resource-card:hover::before {
+            left: 100%;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .resource-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .evaluation { color: #4CAF50; }
+        .materials { color: #2196F3; }
+        .guide { color: #FF9800; }
+        .video { color: #F44336; }
+
+        .resource-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .resource-card p {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn.disabled {
+            background: linear-gradient(45deg, #ccc, #aaa);
+            cursor: not-allowed;
+        }
+
+        .btn.disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .coming-soon {
+            background: rgba(255,193,7,0.2);
+            color: #ff6f00;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .instagram-section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            animation: slideUp 1s ease-out;
+        }
+
+        .instagram-section h2 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .resource-card:nth-child(1) { animation-delay: 0.1s; }
+        .resource-card:nth-child(2) { animation-delay: 0.2s; }
+        .resource-card:nth-child(3) { animation-delay: 0.3s; }
+        .resource-card:nth-child(4) { animation-delay: 0.4s; }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .resource-card {
+                padding: 20px;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Workshop Coding</h1>
+            <p>Mari belajar dan berkreasi bersama</p>
+            <div class="subtitle"><h3>Emanuel Ristian Handoyo, S.T., M.Eng.</h3><br><b>Program Studi Sistem Informasi - Universitas Atma Jaya Yogyakarta</b></div>
+        </div>
+
+        <div class="resources-grid">
+            <div class="resource-card">
+                <span class="resource-icon evaluation">📝</span>
+                <h3>Form Evaluasi</h3>
+                <p>Berikan feedback dan evaluasi mengenai workshop ini untuk membantu kami meningkatkan kualitas pembelajaran</p>
+                <a href="https://forms.gle/PZAoWWm2ztaayqQo7" target="_blank" class="btn pulse">
+                    Isi Evaluasi
+                </a>
+            </div>
+
+            <div class="resource-card">
+                <span class="resource-icon materials">📚</span>
+                <h3>Materi Presentasi</h3>
+                <p>Akses seluruh materi presentasi workshop yang telah disampaikan untuk referensi dan pembelajaran lanjutan</p>
+                <a href="https://drive.uajy.ac.id/index.php/s/De4LSC9RPLHqjqy" target="_blank" class="btn">
+                    Download Materi
+                </a>
+            </div>
+
+            <div class="resource-card">
+                <span class="resource-icon guide">📖</span>
+                <h3>Panduan Singkat</h3>
+                <p>Panduan praktis dan ringkas untuk membantu Anda memulai coding journey dengan mudah dan terarah</p>
+                <a href="#" class="btn disabled">
+                    Lihat Panduan
+                </a>
+                <div class="coming-soon">Coming Soon</div>
+            </div>
+
+            <div class="resource-card">
+                <span class="resource-icon video">🎬</span>
+                <h3>How to Vibe Coding</h3>
+                <p>Tonton video inspiratif tentang bagaimana menikmati proses coding dan menciptakan vibe positif dalam programming</p>
+                <a href="https://youtu.be/SKPPgGxrKxY?si=I-eES_-OO_Ojwop7" target="_blank" class="btn">
+                    Tonton Video
+                </a>
+            </div>
+        </div>
+
+        <div class="instagram-section">
+            <h2>📱 Follow Our Journey at Sistem Informasi UAJY</h2>
+            <iframe width="100%" height="600px" src="https://www.youtube.com/embed/qf-ULA3g3zE?si=qVxrvAC8bzqkjWhm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script async onerror="var a=document.createElement('script');a.src='https://iframely.net/files/instagram_embed.js';document.body.appendChild(a);" src="https://www.instagram.com/embed.js"></script>
+</body>
+</html>
