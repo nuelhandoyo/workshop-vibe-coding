@@ -24,14 +24,18 @@ YouTube Embed untuk integrasi video
 Buka file index.html di browser untuk melihat tampilan lengkap.
 
 Instruksi Ringkas
-> generate email baru di https://temp-mail.org/
-> buat akun di bolt.new
-> konfirmasi email
-> Prompt 1
+1. generate email baru di https://temp-mail.org/
+2. buat akun di bolt.new
+3. konfirmasi email
+4. Prompt 1
+<pre>
 buatkan saya web PWA profil diri untuk nama Emanuel Ristian Handoyo. Profil ini dibuat untuk memamerkan proyek dan keterampilan profesional saya. buat menu di bagian bawah (layaknya aplikasi mobile) ketika dibuka di device dengan resolusi smartphone. 
-> Klik Enhance prompt
-> Klik tombol panah untuk generate code dan preview aplikasinya
-> Prompt 2
+</pre>
+5. Klik Enhance prompt
+6. Klik tombol panah untuk generate code dan preview aplikasinya
+7. Prompt 2
+<pre>
 sesuaikan data dengan informasi di bawah ini 
 [ambil dari file .md yang dihasilkan dari web ini https://cv-generator-sma.vercel.app/]
-> klik publish 
+</pre>
+8. klik publish 
